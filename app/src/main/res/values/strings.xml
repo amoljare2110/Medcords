@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Medcords</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="network_message">Network not available please check it.</string>
+</resources>

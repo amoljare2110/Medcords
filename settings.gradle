@@ -1,0 +1,2 @@
+rootProject.name='Medcords'
+include ':app'
