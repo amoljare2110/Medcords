@@ -1,6 +1,5 @@
 package com.amol.jare.medcords.model
 
-import android.util.Log
 import com.amol.jare.medcords.api.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
