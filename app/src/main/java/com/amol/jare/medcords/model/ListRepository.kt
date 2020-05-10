@@ -1,7 +1,7 @@
 package com.amol.jare.medcords.model
 
+import android.util.Log
 import com.amol.jare.medcords.api.ApiClient
-import com.amol.jare.medcords.model.ApiResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -9,14 +9,25 @@ import java.lang.Exception
 
 class ListRepository {
 
+    var inputVal = "";
+
+    fun getVal(inputValue: String) {
+        inputVal = inputValue;
+    }
+
     fun getList(onResult: (isSuccess: Boolean, response: ApiResponse?) -> Unit) {
 
+        var jsonObj: HashMap<String, String> = HashMap();
+        jsonObj.put("bname", inputVal)
+
         try {
-            ApiClient.instance.getList().enqueue(object : Callback<ApiResponse> {
+            ApiClient.instance.getList(jsonObj).enqueue(object : Callback<ApiResponse> {
 
                 override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
                     if (response != null && response.isSuccessful)
-                        onResult(true, response.body())
+                        onResult(
+                            true, response.body()
+                        )
                     else
                         onResult(false, null)
                 }

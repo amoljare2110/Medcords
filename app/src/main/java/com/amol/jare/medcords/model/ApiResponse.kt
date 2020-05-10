@@ -1,12 +1,13 @@
 package com.amol.jare.medcords.model
 
-class ApiResponse(
-    val status: String,
-    val errno: String,
-    val oer: String,
-    val tr: String,
-    val errCode: String,
-    val oreStatus: String,
-    val msg: String
 
+data class ApiResponse(
+    val status: Int,
+    val errCode: Int,
+    val msg: String,
+    val data: myData
+)
+
+data class myData(
+    val rstr: String
 )

@@ -13,9 +13,12 @@ class HomeViewModel : ViewModel() {
 
     var realdata = MutableLiveData<ApiResponse>()
 
-    fun getData() {
+    fun getData(inputValue:String) {
         try {
-            ListRepository.getInstance().getList { isSuccess, response ->
+
+            ListRepository.getInstance().getVal(inputValue)
+
+            ListRepository.getInstance().getList {isSuccess, response ->
                 if (isSuccess) {
                     CoroutineScope(Dispatchers.IO).launch {
                         realdata.postValue(response)
